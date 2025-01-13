@@ -53,22 +53,5 @@ public class RespawnManager : MonoBehaviour
     private Vector3 GerarPosicaoAleatoria()
     {
         // Obtém as bordas da tela (mundo 2D)
-        float larguraTela = cameraPrincipal.orthographicSize * cameraPrincipal.aspect;
-        float alturaTela = cameraPrincipal.orthographicSize;
 
-        // Gera uma posição aleatória dentro da tela
-        float xAleatorio = Random.Range(-larguraTela, larguraTela);
-        float yAleatorio = Random.Range(-alturaTela, alturaTela);
-
-        return new Vector3(xAleatorio, yAleatorio, 0f); // Retorna a posição no plano X, Y
-    }
-
-    private System.Collections.IEnumerator RespawnCoroutine(GameObject prefab, Vector3 posicaoInicial, float rotaçãoAleatoria)
-    {
-        // Espera 2 segundos antes de criar a nave
-        yield return new WaitForSeconds(2f);
-
-        // Instancia a nova nave na posição inicial aleatória com a rotação aleatória
-        Instantiate(prefab, posicaoInicial, Quaternion.Euler(0, 0, rotaçãoAleatoria));
-    }
 }
